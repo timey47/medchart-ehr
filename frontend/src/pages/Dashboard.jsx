@@ -42,15 +42,15 @@ export default function Dashboard() {
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Good morning, {user?.name?.split(' ')[0]} 👋</h1>
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Good morning, {user?.name?.split(' ')[0]} 👋</h1>
         <p className="text-gray-500 mt-1">{today}</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
         {statsLoading ? (
           Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="card p-6 animate-pulse">
@@ -93,7 +93,7 @@ export default function Dashboard() {
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
         {[
           { to: '/patients', label: 'Patient Registry', desc: 'View & manage all patients', bg: 'bg-blue-600', icon: '👥' },
           { to: '/kanban', label: 'Workflow Board', desc: 'Drag to update patient status', bg: 'bg-indigo-600', icon: '📋' },

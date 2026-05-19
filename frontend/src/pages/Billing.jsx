@@ -84,7 +84,7 @@ export default function Billing() {
   const totalAll = (summary?.paid.total ?? 0) + (summary?.pending.total ?? 0) + (summary?.denied.total ?? 0);
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Billing & Revenue</h1>
@@ -138,7 +138,7 @@ export default function Billing() {
       {showForm && (
         <form onSubmit={handleAddCharge} className="card p-6 mb-6">
           <h3 className="font-semibold text-gray-900 mb-4">New Charge</h3>
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Patient *</label>
               <select
@@ -207,7 +207,8 @@ export default function Billing() {
 
       {/* Charges table */}
       <div className="card overflow-hidden">
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+        <table className="w-full text-sm min-w-[700px]">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
               <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Patient</th>
@@ -278,6 +279,7 @@ export default function Billing() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

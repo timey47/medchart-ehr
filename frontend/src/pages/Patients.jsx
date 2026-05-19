@@ -157,7 +157,7 @@ export default function Patients() {
   }
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       {modal && (
         <PatientModal patient={modal.patient} onClose={() => setModal(null)} onSave={handleSave} />
       )}
@@ -216,7 +216,8 @@ export default function Patients() {
 
       {/* Table */}
       <div className="card overflow-hidden">
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+        <table className="w-full text-sm min-w-[640px]">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
               <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Patient</th>
@@ -287,6 +288,7 @@ export default function Patients() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

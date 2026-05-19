@@ -70,7 +70,7 @@ function PatientCard({ patient, col, onDragStart, onStatusChange }) {
           </div>
         </div>
         <select
-          className="text-xs border border-gray-200 rounded-lg px-2 py-1 text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          className="text-xs border border-gray-200 rounded-lg px-2 py-1 text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
           value={patient.status}
           onChange={e => onStatusChange(patient.id, e.target.value)}
           onClick={e => e.stopPropagation()}
@@ -147,14 +147,14 @@ export default function Kanban() {
   }, {});
 
   return (
-    <div className="p-8 h-full">
+    <div className="p-4 sm:p-8 h-full">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Workflow Board</h1>
         <p className="text-gray-500 text-sm mt-1">Drag cards between columns to update patient status</p>
       </div>
 
       {isLoading ? (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {COLUMNS.map(col => (
             <div key={col.id} className="space-y-3">
               <div className="h-10 bg-gray-200 rounded-lg animate-pulse" />
@@ -165,7 +165,7 @@ export default function Kanban() {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-6 h-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 h-full">
           {COLUMNS.map(col => {
             const cards = grouped[col.id] ?? [];
             const isDragTarget = dragOver === col.id;
